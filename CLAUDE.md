@@ -37,12 +37,23 @@ pré-aprovação, lembrar o hóspede de confirmar pelo app.
 
 ## Publicação
 
-O guia **ainda não está publicado**: o GitHub Pages está desativado no repositório
-(`has_pages: false`) e não há config de Vercel/Netlify/CNAME. Para publicar:
-Settings → Pages → Deploy from a branch → `main` / `/ (root)`, o que deixaria o guia em
-`https://kauan-salgado.github.io/cantinho-da-de/`.
+O guia está no ar pelo **Netlify**: <https://cantinho-da-de.netlify.app/>
+É esse o link que se manda para os hóspedes.
 
-Atenção antes de publicar: o guia expõe a senha do Wi-Fi e o celular da anfitriã.
+O deploy sai da branch `main` — mudanças em branch de trabalho só aparecem no site
+depois do merge. O GitHub Pages está desativado e não é usado.
+
+Atenção: a página é pública e expõe a senha do Wi-Fi e o celular da anfitriã.
+
+## Conteúdo do guia
+
+Seções (acordeão): 01 Wi-Fi · 02 Quartos · 03 Piscina, Sinuca & Encontros ·
+04 Rede Suspensa · 05 Cozinha · 06 Regras · 07 Emergência · 08 Arredores · 09 Check-out.
+
+O **Frigobar de Honra** (tabela de preços + chave Pix) foi **removido temporariamente**
+em set/2026, junto com o item correspondente no checklist de check-out. O CSS
+(`.frig-*`, `.pix-*`) e o handler de copiar no `app.js` continuam no projeto para quando
+a seção voltar.
 
 ## Estilo das mensagens a hóspedes
 
