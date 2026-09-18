@@ -1,7 +1,7 @@
 # Cantinho da Dê
 
-Site estático (guia do hóspede) de um espaço de temporada com área de encontros,
-no Park Way / Vicente Pires (DF). Três arquivos: `index.html`, `styles.css`, `app.js`.
+Site estático (guia do hóspede) de um espaço de temporada com área de encontros:
+**Condomínio Kalyandra · Rua do Jockey · Jockey Club · Brasília/DF**, casa 13. Três arquivos: `index.html`, `styles.css`, `app.js`.
 Sem build, sem dependências — é só abrir o `index.html`.
 
 ## Operação da hospedagem
