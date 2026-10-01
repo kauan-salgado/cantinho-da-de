@@ -66,7 +66,7 @@ com pedido em até 14 dias e fotos de antes e depois.
 ### Capacidade
 
 - **Pernoite: 6 pessoas** (limite de camas)
-- **Uso diurno: 15 pessoas**
+- **Uso diurno: 30 pessoas** (day use, confraternização)
 
 ### Visitantes de hóspedes em pernoite (proposto, ainda não publicado nas regras)
 
@@ -76,11 +76,18 @@ até 4 visitantes sem custo (avisados antes, cadastrados na portaria, saída at�
 pacote confraternização de R$ 900 sobre a diária, com autorização prévia.
 A trava real é a portaria: toda visita precisa de autorização prévia.
 
-### Som
+### Som e música ao vivo
 
 Caixa portátil (tipo JBL) ou som ambiente da casa em volume moderado, até as 22h.
-Proibido som automotivo e caixas de alta potência. O guia e as mensagens precisam
-dizer a mesma coisa — os briefings automáticos já saíram contraditórios nesse ponto.
+Proibido som automotivo e caixas de alta potência.
+
+Música ao vivo é permitida no **formato acústico**: voz, violão, cajón, teclado ou
+sanfona, com caixa portátil em volume ambiente.
+
+O Kauan é **músico** e tem indicações de instrumentistas de confiança — oferecer isso
+sempre que o hóspede mencionar cantor ou música ao vivo. É diferencial de venda:
+resolve um problema que o hóspede ainda tem e posiciona a casa acima de um
+espaço que só se aluga.
 
 ## Publicação
 
