@@ -76,6 +76,12 @@ até 4 visitantes sem custo (avisados antes, cadastrados na portaria, saída at�
 pacote confraternização de R$ 900 sobre a diária, com autorização prévia.
 A trava real é a portaria: toda visita precisa de autorização prévia.
 
+### Pets
+
+**Não recebemos pets** (decidido em out/2026). Regra de "pet não sobe na cama/sofá" foi
+descartada por ser inexigível na prática — ou se recebe com taxa e manta própria, ou não
+se recebe. Optou-se por não receber.
+
 ### Som e música ao vivo
 
 Caixa portátil (tipo JBL) ou som ambiente da casa em volume moderado, até as 22h.
