@@ -68,13 +68,20 @@ com pedido em até 14 dias e fotos de antes e depois.
 - **Pernoite: 6 pessoas** (limite de camas)
 - **Uso diurno: 30 pessoas** (day use, confraternização)
 
-### Visitantes de hóspedes em pernoite (proposto, ainda não publicado nas regras)
+### Visitantes de hóspedes em pernoite
 
-Para fechar a brecha de reservar diária para 2 e receber 15 visitas:
-até 4 visitantes sem custo (avisados antes, cadastrados na portaria, saída até 22h);
-5 a 9 visitantes a R$ 100/pessoa/dia; 10 ou mais, ou qualquer evento, aplica-se o
-pacote confraternização de R$ 900 sobre a diária, com autorização prévia.
-A trava real é a portaria: toda visita precisa de autorização prévia.
+Fecha a brecha de reservar diária para 2 e receber 15 visitas. Faixas (out/2026):
+
+| Visitas | Cobrança |
+|---|---|
+| Até 6 | Sem custo |
+| 7 a 9 | R$ 100 por pessoa |
+| 10 ou mais, ou qualquer evento | Pacote confraternização: R$ 900 sobre a diária |
+
+Em todos os casos: nomes informados com antecedência e autorizados na portaria,
+som moderado até as 22h. A trava real é a portaria — ninguém entra sem autorização
+prévia. Já comunicado ao hóspede André (reserva 11-12/out); ainda falta publicar nas
+regras da casa do anúncio.
 
 ### Pets
 
