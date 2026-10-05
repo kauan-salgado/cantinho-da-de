@@ -83,6 +83,11 @@ som moderado até as 22h. A trava real é a portaria — ninguém entra sem auto
 prévia. Já comunicado ao hóspede André (reserva 11-12/out); ainda falta publicar nas
 regras da casa do anúncio.
 
+Justificativa a usar com hóspedes (nunca soar como cobrança): é organização do espaço —
+grupo maior significa faxina bem mais extensa (piscina, churrasqueira, banheiros, área
+de encontros) e consumo maior de água, energia e gás. O valor cobre isso, não é taxa por
+pessoa estar presente.
+
 ### Pets
 
 **Não recebemos pets** (decidido em out/2026). Regra de "pet não sobe na cama/sofá" foi
