@@ -134,7 +134,38 @@ em set/2026, junto com o item correspondente no checklist de check-out. O CSS
 (`.frig-*`, `.pix-*`) e o handler de copiar no `app.js` continuam no projeto para quando
 a seção voltar.
 
+## Mensagem padrão de boas-vindas (reserva confirmada)
+
+Enxuta de propósito: não descrever comodidades nem explicar a piscina aqui — o guia
+faz isso. A mensagem só confirma, orienta e pede o que falta.
+
+```
+Olá, [NOME]! Reserva confirmada por aqui — sejam muito bem-vindos ao
+Cantinho da Dê! 🏡✨
+
+A casa e toda a área de lazer privativa estarão prontinhas para vocês
+aproveitarem [o feriadão / o fim de semana / a estadia] com calma.
+
+O check-in é a partir das 14h de [dia] ([data]).
+
+Deixo aqui os nossos dois links:
+🏡 Nosso site: https://cantinhodade.netlify.app/
+📖 Guia do hóspede (Wi-Fi, comandos da piscina, regras e dicas da
+região): https://cantinho-da-de.netlify.app/
+
+Mais perto [do dia] te envio os detalhes de acesso e já deixo vocês
+autorizados na portaria. Pode me mandar os nomes completos de vocês
+[dois] quando puder?
+
+Qualquer dúvida até lá, é só chamar. Aproveitem muito! 🙌
+```
+
 ## Estilo das mensagens a hóspedes
 
 Português do Brasil, tom caloroso e direto, emojis com moderação, horários e valores
 sempre explícitos (nunca "mais tarde" ou "flexibilizo" sem dizer o horário).
+
+**Mensagem curta.** Responder o caso concreto do hóspede e parar. Não descrever
+comodidades que ele não perguntou, não listar faixas de preço que não se aplicam a ele,
+não antecipar regras fora de contexto. O guia e o site cobrem o detalhe; a mensagem
+resolve o ponto. Texto longo com tabela já custou uma reserva (André, out/2026).
