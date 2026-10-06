@@ -109,8 +109,15 @@ espaço que só se aluga.
 
 ## Publicação
 
-O guia está no ar pelo **Netlify**: <https://cantinho-da-de.netlify.app/>
-É esse o link que se manda para os hóspedes.
+Dois sites no ar, ambos no Netlify — mandar os dois para o hóspede:
+
+| | |
+|---|---|
+| Site institucional | <https://cantinhodade.netlify.app/> |
+| Guia do hóspede (este repositório) | <https://cantinho-da-de.netlify.app/> |
+
+Atenção ao hífen: o guia tem hífens no domínio, o site institucional não.
+O site institucional não vive neste repositório.
 
 O deploy sai da branch `main` — mudanças em branch de trabalho só aparecem no site
 depois do merge. O GitHub Pages está desativado e não é usado.
