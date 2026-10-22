@@ -66,6 +66,12 @@ com pedido em até 14 dias e fotos de antes e depois.
 ### Capacidade
 
 - **Pernoite: 6 pessoas** (limite de camas)
+  - Quarto 1 (master): cama de casal Queen, ar-condicionado
+  - Quarto 2: cama de casal, climatizador
+  - **Dois sofás-cama de solteiro na área de encontros, no térreo** (confirmado pelo
+    Kauan em out/2026)
+  - Pendente: o guia ainda descreve "sofá-cama para 2 pessoas na área da sinuca" (andar
+    de cima). Confirmar se é o mesmo móvel ou um adicional e alinhar guia e anúncio.
 - **Uso diurno: 30 pessoas** (day use, confraternização)
 
 ### Visitantes de hóspedes em pernoite
