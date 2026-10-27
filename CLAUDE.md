@@ -76,25 +76,30 @@ com pedido em até 14 dias e fotos de antes e depois.
     fica no térreo. Não oferecer como cama para hóspede.
 - **Uso diurno: 30 pessoas** (day use, confraternização)
 
-### Visitantes de hóspedes em pernoite
+### Pernoite OU day use — sem formato híbrido (regra de 26/out/2026)
 
-Fecha a brecha de reservar diária para 2 e receber 15 visitas. Faixas (out/2026):
+**Decisão do Kauan:** não liberar mais casos como o do Victor (2 dormindo + 20 amigos
+durante o dia). **Ou é day use, ou é pernoite.** Pernoite com festa/grupo grande de
+visitas não é mais oferecido.
 
-| Visitas | Cobrança |
-|---|---|
-| Até 6 | Sem custo |
-| 7 a 9 | R$ 100 por pessoa |
-| 10 ou mais, ou qualquer evento | Pacote confraternização: R$ 900 sobre a diária |
+- **Pernoite:** até 6 dormindo; o grupo fica restrito aos hóspedes da reserva.
+- **Day use / evento:** até 30 pessoas, sem ninguém dormindo (tabela de preços acima).
+- **Exceção, caso a caso, a critério do Kauan:** se for **família** e o hóspede tiver
+  **boa avaliação no Airbnb**, pode liberar pernoite com **até 15 pessoas no total,
+  contando os até 6 que dormem** (ex.: ceia de Natal da Mariza, 24/12: 6 dormindo + 15).
+  Nunca oferecer essa exceção de saída; só se o Kauan decidir.
 
-Em todos os casos: nomes informados com antecedência e autorizados na portaria,
-som moderado até as 22h. A trava real é a portaria — ninguém entra sem autorização
-prévia. Já comunicado ao hóspede André (reserva 11-12/out); ainda falta publicar nas
-regras da casa do anúncio.
+A política antiga (até 6 visitas grátis, 7–9 por R$ 100, 10+ no pacote de R$ 900)
+**está substituída** para novas negociações. Compromissos já assumidos são honrados:
+André (11–12/out), Gleilma (17–21/dez: 4ª pessoa para dormir sem custo e visitas de um
+dia até 10 sem custo) e Mariza (ceia de 24/12).
 
+A trava real continua sendo a portaria: ninguém entra sem nome autorizado antes.
 Justificativa a usar com hóspedes (nunca soar como cobrança): é organização do espaço —
-grupo maior significa faxina bem mais extensa (piscina, churrasqueira, banheiros, área
-de encontros) e consumo maior de água, energia e gás. O valor cobre isso, não é taxa por
-pessoa estar presente.
+grupo maior significa faxina bem mais extensa e consumo maior de água, energia e gás.
+
+Pendente: definir a tolerância para **poucas visitas pontuais** em pernoite (ex.: 1 ou 2
+amigos), que a regra acima não cobre.
 
 ### Pets
 
