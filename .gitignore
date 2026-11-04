@@ -6,3 +6,6 @@ assets/
 Fotografia/
 Fotografia-*.zip
 MATERIAL PRODUÇÃO SITE DÊ/
+
+# Contratos com nome e CPF de hóspedes — nunca versionar
+contratos/
