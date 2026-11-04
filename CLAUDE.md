@@ -1,0 +1,184 @@
+# Cantinho da Dê
+
+Site estático (guia do hóspede) de um espaço de temporada com área de encontros:
+**Condomínio Kalyandra · Rua do Jockey · Jockey Club · Brasília/DF**, casa 13. Três arquivos: `index.html`, `styles.css`, `app.js`.
+Sem build, sem dependências — é só abrir o `index.html`.
+
+## Operação da hospedagem
+
+Informações que valem para redigir mensagens a hóspedes e para o conteúdo do guia.
+
+### Horários padrão
+
+| | |
+|---|---|
+| Check-in | **14h** |
+| Check-out | **11h** |
+| Intervalo mínimo entre hóspedes | **3h** para a faxina |
+
+Quando um check-out é estendido, o check-in seguinte é o novo horário de saída + 3h
+(ex.: saída flexibilizada às 16h → entrada a partir das 19h).
+
+### Chegada / portaria
+
+O condomínio é residencial. Orientar o hóspede a informar na portaria que vai para a
+**casa 13**, como convidado, sem mencionar Airbnb ou hospedagem.
+
+### Comandos da área da piscina
+
+- **Hidro**: botão **nº 2**
+- **Luzes**: botão com o **ícone de luz**; para **desligar**, apertar e segurar
+
+### Reservas
+
+Pré-aprovação enviada pelo anfitrião precisa ser **confirmada pelo hóspede dentro do
+prazo**, senão expira sozinha e a data volta a ficar em aberto. Ao reenviar uma
+pré-aprovação, lembrar o hóspede de confirmar pelo app.
+
+### Preços e formatos (out/2026)
+
+A Airbnb desconta **18,2%** do bruto (verificado na reserva da Brenda: 1.074 + 207 de
+limpeza − 233,31 de taxa = 1.047,69). Todo valor combinado com hóspede é **bruto**;
+para receber X líquido, cobre `X ÷ 0,818`.
+
+Fechado:
+
+| Formato | Cobrar | Recebe |
+|---|---|---|
+| Day use evento — sábado/feriado, 20+ pessoas (ref.: Mayara, 21/11) | **R$ 1.850** | ~R$ 1.513 |
+
+Proposto, ainda sem decisão do Kauan:
+
+| Formato | Cobrar | Recebe |
+|---|---|---|
+| Day use padrão (até 15 pessoas, 10h–20h) | R$ 1.600 | ~R$ 1.309 |
+| Workshop corporativo, dia útil | R$ 1.700 | ~R$ 1.391 |
+| Meio período (4h) | R$ 950 | ~R$ 777 |
+| Hora extra | R$ 200/h | ~R$ 164 |
+
+Pernoite segue o preço do anúncio (~R$ 1.050 bruto a diária, até 6 pessoas).
+Piso para qualquer day use: R$ 1.400 bruto.
+
+Na **Oferta Especial**, a taxa de limpeza NÃO é somada automaticamente — o valor
+digitado é o total. Caução não existe mais no Airbnb: dano se resolve pelo AirCover,
+com pedido em até 14 dias e fotos de antes e depois.
+
+### Capacidade
+
+- **Pernoite: 6 pessoas** (limite de camas)
+  - Quarto 1 (master): cama de casal Queen, ar-condicionado
+  - Quarto 2: cama de casal, climatizador
+  - Sofá-cama para até 2 pessoas na área da sinuca (andar de cima) — é a terceira cama
+    "oficial" e conta nos 6
+  - **Dois sofás-cama de solteiro na área de encontros, no térreo: NÃO contam na
+    capacidade e NÃO entram no anúncio** (decisão do Kauan, out/2026). Não são tão
+    confortáveis para dormir; servem para quem quer assistir TV deitado, já que a TV
+    fica no térreo. Não oferecer como cama para hóspede.
+- **Uso diurno: 30 pessoas** (day use, confraternização)
+
+### Pernoite OU day use — sem formato híbrido (regra de 26/out/2026)
+
+**Decisão do Kauan:** não liberar mais casos como o do Victor (2 dormindo + 20 amigos
+durante o dia). **Ou é day use, ou é pernoite.** Pernoite com festa/grupo grande de
+visitas não é mais oferecido.
+
+- **Pernoite:** até 6 dormindo; o grupo fica restrito aos hóspedes da reserva.
+- **Day use / evento:** até 30 pessoas, sem ninguém dormindo (tabela de preços acima).
+- **Exceção, caso a caso, a critério do Kauan:** se for **família** e o hóspede tiver
+  **boa avaliação no Airbnb**, pode liberar pernoite com **até 15 pessoas no total,
+  contando os até 6 que dormem** (ex.: ceia de Natal da Mariza, 24/12: 6 dormindo + 15).
+  Nunca oferecer essa exceção de saída; só se o Kauan decidir.
+
+A política antiga (até 6 visitas grátis, 7–9 por R$ 100, 10+ no pacote de R$ 900)
+**está substituída** para novas negociações. Compromissos já assumidos são honrados:
+André (11–12/out), Gleilma (17–21/dez: 4ª pessoa para dormir sem custo e visitas de um
+dia até 10 sem custo) e Mariza (ceia de 24/12).
+
+A trava real continua sendo a portaria: ninguém entra sem nome autorizado antes.
+Justificativa a usar com hóspedes (nunca soar como cobrança): é organização do espaço —
+grupo maior significa faxina bem mais extensa e consumo maior de água, energia e gás.
+
+Pendente: definir a tolerância para **poucas visitas pontuais** em pernoite (ex.: 1 ou 2
+amigos), que a regra acima não cobre.
+
+### Pets
+
+**Não recebemos pets** (decidido em out/2026). Regra de "pet não sobe na cama/sofá" foi
+descartada por ser inexigível na prática — ou se recebe com taxa e manta própria, ou não
+se recebe. Optou-se por não receber.
+
+### Som e música ao vivo
+
+Caixa portátil (tipo JBL) ou som ambiente da casa em volume moderado, até as 22h.
+Proibido som automotivo e caixas de alta potência.
+
+Música ao vivo é permitida no **formato acústico**: voz, violão, cajón, teclado ou
+sanfona, com caixa portátil em volume ambiente.
+
+O Kauan é **músico** e tem indicações de instrumentistas de confiança — oferecer isso
+sempre que o hóspede mencionar cantor ou música ao vivo. É diferencial de venda:
+resolve um problema que o hóspede ainda tem e posiciona a casa acima de um
+espaço que só se aluga.
+
+## Publicação
+
+Dois sites no ar, ambos no Netlify — mandar os dois para o hóspede:
+
+| | |
+|---|---|
+| Site institucional | <https://cantinhodade.netlify.app/> |
+| Guia do hóspede (este repositório) | <https://cantinho-da-de.netlify.app/> |
+
+Atenção ao hífen: o guia tem hífens no domínio, o site institucional não.
+O site institucional não vive neste repositório.
+
+O deploy sai da branch `main` — mudanças em branch de trabalho só aparecem no site
+depois do merge. O GitHub Pages está desativado e não é usado.
+
+Atenção: a página é pública e expõe a senha do Wi-Fi e o celular da anfitriã.
+
+## Conteúdo do guia
+
+Seções (acordeão): 01 Wi-Fi · 02 Quartos · 03 Piscina, Sinuca & Encontros ·
+04 Rede Suspensa · 05 Cozinha · 06 Regras · 07 Emergência · 08 Arredores · 09 Check-out.
+
+O **Frigobar de Honra** (tabela de preços + chave Pix) foi **removido temporariamente**
+em set/2026, junto com o item correspondente no checklist de check-out. O CSS
+(`.frig-*`, `.pix-*`) e o handler de copiar no `app.js` continuam no projeto para quando
+a seção voltar.
+
+## Mensagem padrão de boas-vindas (reserva confirmada)
+
+Enxuta de propósito: não descrever comodidades nem explicar a piscina aqui — o guia
+faz isso. A mensagem só confirma, orienta e pede o que falta.
+
+```
+Olá, [NOME]! Reserva confirmada por aqui — sejam muito bem-vindos ao
+Cantinho da Dê! 🏡✨
+
+A casa e toda a área de lazer privativa estarão prontinhas para vocês
+aproveitarem [o feriadão / o fim de semana / a estadia] com calma.
+
+O check-in é a partir das 14h de [dia] ([data]).
+
+Deixo aqui os nossos dois links:
+🏡 Nosso site: https://cantinhodade.netlify.app/
+📖 Guia do hóspede (Wi-Fi, comandos da piscina, regras e dicas da
+região): https://cantinho-da-de.netlify.app/
+
+Mais perto [do dia] te envio os detalhes de acesso e já deixo vocês
+autorizados na portaria. Pode me mandar os nomes completos de vocês
+[dois] quando puder?
+
+Qualquer dúvida até lá, é só chamar. Aproveitem muito! 🙌
+```
+
+## Estilo das mensagens a hóspedes
+
+Português do Brasil, tom caloroso e direto, emojis com moderação, horários e valores
+sempre explícitos (nunca "mais tarde" ou "flexibilizo" sem dizer o horário).
+
+**Mensagem curta.** Responder o caso concreto do hóspede e parar. Não descrever
+comodidades que ele não perguntou, não listar faixas de preço que não se aplicam a ele,
+não antecipar regras fora de contexto. O guia e o site cobrem o detalhe; a mensagem
+resolve o ponto. Texto longo com tabela já custou uma reserva (André, out/2026).
