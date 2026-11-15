@@ -8,6 +8,14 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Página privada dos links do portão: fora dos buscadores e sem cache.
+[[headers]]
+  for = "/links.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+    Referrer-Policy = "no-referrer"
+
 [[redirects]]
   from = "/scripts/*"
   to = "/404.html"

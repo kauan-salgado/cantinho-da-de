@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Página privada para consultar e copiar links do portão." />
+  <title>Links do portão — Cantinho da Dê</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="links-page">
+  <main class="links-main">
+    <div class="container">
+      <header class="links-header">
+        <p class="links-eyebrow">Cantinho da Dê</p>
+        <h1 class="links-title">Links do portão</h1>
+      </header>
+
+      <section class="portao-card links-card" aria-labelledby="links-titulo-form">
+        <h2 class="links-section-title" id="links-titulo-form">Acesso privado</h2>
+        <form id="links-form" action="/links.html" method="post">
+          <label class="links-label" for="links-senha">Senha</label>
+          <input
+            class="links-input"
+            id="links-senha"
+            name="senha"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+          <button class="links-submit" id="links-enviar" type="submit" aria-disabled="false">Ver links</button>
+        </form>
+        <p class="links-status" id="links-status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+
+      <section class="links-results" aria-label="Links das reservas">
+        <ul class="links-lista" id="links-lista"></ul>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/links.js"></script>
+</body>
+</html>
