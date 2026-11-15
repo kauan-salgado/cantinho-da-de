@@ -289,6 +289,66 @@ main {
   line-height: 1.6;
 }
 
+/* ── PORTÃO ── */
+#portao[hidden] { display: none !important; }
+
+.portao-card {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+  animation: portao-entrar 0.35s ease-out both;
+}
+
+.portao-title {
+  margin: 0.15rem 0 0.85rem;
+  color: var(--text);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.portao-button {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--bg);
+  font: 500 0.85rem 'IBM Plex Mono', monospace;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.portao-button:not([aria-disabled="true"]):hover { transform: translateY(-2px); }
+.portao-button:focus-visible { outline: 3px solid var(--accent2); outline-offset: 3px; }
+.portao-button[aria-disabled="true"] { cursor: wait; opacity: 0.68; }
+
+.portao-status {
+  min-height: 1.5em;
+  margin-top: 0.8rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.portao-status a { white-space: nowrap; }
+
+@keyframes portao-entrar {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portao-card { animation: none; }
+  .portao-button { transition: none; }
+}
+
 /* ── ROOM CARDS ── */
 .rooms-grid {
   display: grid;
