@@ -9,3 +9,10 @@ MATERIAL PRODUÇÃO SITE DÊ/
 
 # Contratos com nome e CPF de hóspedes — nunca versionar
 contratos/
+
+.env
+.env.*
+!.env.example
+node_modules/
+.netlify/
+

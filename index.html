@@ -61,6 +61,13 @@
   <main>
     <div class="container">
 
+      <section class="portao-card" id="portao" aria-labelledby="portao-titulo" hidden>
+        <p class="wifi-label">Acesso à casa</p>
+        <h2 class="portao-title" id="portao-titulo">Portão</h2>
+        <button class="portao-button" id="portao-abrir" type="button">Abrir / fechar portão</button>
+        <p class="portao-status" id="portao-estado" aria-live="polite" aria-atomic="true"></p>
+      </section>
+
       <!-- ── 01 WI-FI ── -->
       <article class="section-block" id="sec-wifi">
         <div class="accordion-header" role="button" aria-expanded="false" aria-controls="body-wifi" tabindex="0">
@@ -679,5 +686,6 @@
   </footer>
 
   <script src="app.js"></script>
+  <script type="module" src="portao.js"></script>
 </body>
 </html>
