@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { criarTrava, lerTokenDoHash, pedirAbertura, proximoEstado } from '../portao.js';
+import { criarTrava, lerTokenDoHash, mensagemErroPortao, pedirAbertura, proximoEstado } from '../portao.js';
 
 const estadoParado = { status: 'parado', trava: 0, erro: null };
 
@@ -17,9 +17,28 @@ test('botão travado continua focável com aria-disabled', () => {
 test('proximoEstado volta de sucesso a parado ao terminar a trava', () => {
   let estado = proximoEstado(estadoParado, { tipo: 'toque', agora: 1000 });
   estado = proximoEstado(estado, { tipo: 'resposta', ok: true });
-  assert.equal(estado.status, 'aberto');
-  assert.equal(proximoEstado(estado, { tipo: 'tempo', agora: 10_999 }).status, 'aberto');
+  assert.equal(estado.status, 'acionado');
+  assert.equal(proximoEstado(estado, { tipo: 'tempo', agora: 10_999 }).status, 'acionado');
   assert.deepEqual(proximoEstado(estado, { tipo: 'tempo', agora: 11_000 }), estadoParado);
+});
+
+test('mensagem de link fora do período usa a nova janela de validade', () => {
+  assert.equal(
+    mensagemErroPortao('fora_do_periodo'),
+    'Este link só funciona durante a estadia, das 11h do dia do check-in até as 14h do dia do check-out.',
+  );
+});
+
+test('textos de sucesso e botão descrevem o acionamento sem afirmar que o portão abriu', () => {
+  const modulo = readFileSync(new URL('../portao.js', import.meta.url), 'utf8');
+  const html = readFileSync(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /<button[^>]*id="portao-abrir"[^>]*>Abrir \/ fechar portão<\/button>/);
+  assert.match(modulo, /Abrir \/ fechar portão/);
+  assert.match(modulo, /Acionando…/);
+  assert.match(modulo, /Portão acionado · \$\{restante\} s/);
+  assert.match(modulo, /Comando enviado ao portão\./);
+  assert.match(modulo, /Pronto para acionar novamente\./);
+  assert.doesNotMatch(modulo, /Portão aberto|Abrindo…/);
 });
 
 test('proximoEstado mantém o erro e o plano B após terminar a trava', () => {

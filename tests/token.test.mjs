@@ -204,3 +204,73 @@ describe('validarToken', () => {
     assert.equal(validarToken(t, SEGREDO).ok, true);
   });
 });
+
+describe('validarToken com margem', () => {
+  const TRES_HORAS = 3 * 60 * 60 * 1000;
+  const MARGEM = { margemAntesMs: TRES_HORAS, margemDepoisMs: TRES_HORAS };
+  const valido = criarToken({ entrada: ENTRADA, saida: SAIDA }, SEGREDO);
+  const em = (ms) => new Date(ms);
+
+  test('3 h antes da entrada em ponto: aceita e devolve as datas reais', () => {
+    const r = validarToken(valido, SEGREDO, em(ENTRADA.getTime() - TRES_HORAS), MARGEM);
+    assert.equal(r.ok, true);
+    assert.equal(r.entrada.getTime(), ENTRADA.getTime());
+    assert.equal(r.saida.getTime(), SAIDA.getTime());
+  });
+
+  test('3 h e 1 s antes da entrada: antes_da_entrada', () => {
+    const r = validarToken(valido, SEGREDO, em(ENTRADA.getTime() - TRES_HORAS - 1000), MARGEM);
+    assert.deepEqual(r, { ok: false, motivo: 'antes_da_entrada' });
+  });
+
+  test('3 h depois da saída em ponto: aceita e devolve as datas reais', () => {
+    const r = validarToken(valido, SEGREDO, em(SAIDA.getTime() + TRES_HORAS), MARGEM);
+    assert.equal(r.ok, true);
+    assert.equal(r.entrada.getTime(), ENTRADA.getTime());
+    assert.equal(r.saida.getTime(), SAIDA.getTime());
+  });
+
+  test('3 h e 1 s depois da saída: depois_da_saida', () => {
+    const r = validarToken(valido, SEGREDO, em(SAIDA.getTime() + TRES_HORAS + 1000), MARGEM);
+    assert.deepEqual(r, { ok: false, motivo: 'depois_da_saida' });
+  });
+
+  test('margens independentes: só antes, só depois', () => {
+    const antes = em(ENTRADA.getTime() - 1000);
+    const depois = em(SAIDA.getTime() + 1000);
+    assert.equal(validarToken(valido, SEGREDO, antes, { margemAntesMs: TRES_HORAS }).ok, true);
+    assert.equal(validarToken(valido, SEGREDO, depois, { margemAntesMs: TRES_HORAS }).motivo, 'depois_da_saida');
+    assert.equal(validarToken(valido, SEGREDO, depois, { margemDepoisMs: TRES_HORAS }).ok, true);
+    assert.equal(validarToken(valido, SEGREDO, antes, { margemDepoisMs: TRES_HORAS }).motivo, 'antes_da_entrada');
+  });
+
+  test('sem o quarto parâmetro (ou com {}) o comportamento é o de antes', () => {
+    const antes = em(ENTRADA.getTime() - 1000);
+    const depois = em(SAIDA.getTime() + 1000);
+    for (const opcoes of [undefined, {}]) {
+      assert.deepEqual(validarToken(valido, SEGREDO, antes, opcoes), { ok: false, motivo: 'antes_da_entrada' });
+      assert.deepEqual(validarToken(valido, SEGREDO, depois, opcoes), { ok: false, motivo: 'depois_da_saida' });
+      assert.equal(validarToken(valido, SEGREDO, ENTRADA, opcoes).ok, true);
+      assert.equal(validarToken(valido, SEGREDO, SAIDA, opcoes).ok, true);
+    }
+  });
+
+  test('a margem não salva token adulterado nem malformado', () => {
+    const [parte] = valido.split('.');
+    assert.equal(validarToken(`${parte}.xyz`, SEGREDO, DURANTE, MARGEM).motivo, 'assinatura');
+    assert.equal(validarToken('', SEGREDO, DURANTE, MARGEM).motivo, 'malformado');
+  });
+
+  for (const [nome, opcoes] of [
+    ['negativa antes', { margemAntesMs: -1 }],
+    ['negativa depois', { margemDepoisMs: -1000 }],
+    ['não numérica', { margemAntesMs: '3h' }],
+    ['null', { margemDepoisMs: null }],
+    ['NaN', { margemAntesMs: Number.NaN }],
+    ['Infinity', { margemDepoisMs: Number.POSITIVE_INFINITY }],
+  ]) {
+    test(`margem inválida (${nome}) lança TypeError`, () => {
+      assert.throws(() => validarToken(valido, SEGREDO, DURANTE, opcoes), TypeError);
+    });
+  }
+});

@@ -2,6 +2,16 @@ const ENDPOINT_PORTAO = '/api/abrir-portao';
 const ERRO_RESPOSTA_INVALIDA = 'resposta_invalida';
 const ERRO_REDE = 'falha_na_rede';
 
+export function mensagemErroPortao(codigo) {
+  if (codigo === 'fora_do_periodo') {
+    return 'Este link só funciona durante a estadia, das 11h do dia do check-in até as 14h do dia do check-out.';
+  }
+  if (codigo === 'muitas_tentativas') {
+    return 'Muitas tentativas seguidas. Aguarde um minuto e tente de novo.';
+  }
+  return 'Não foi possível abrir o portão agora.';
+}
+
 export function lerTokenDoHash(hash) {
   if (typeof hash !== 'string') return null;
 
@@ -28,12 +38,12 @@ export function proximoEstado(estado, evento) {
 
   if (evento.tipo === 'resposta' && estado.status === 'enviando') {
     return evento.ok
-      ? { ...estado, status: 'aberto', erro: null }
+      ? { ...estado, status: 'acionado', erro: null }
       : { ...estado, status: 'erro', erro: evento.erro };
   }
 
   if (evento.tipo === 'tempo' && evento.agora >= estado.trava) {
-    if (estado.status === 'aberto') return { status: 'parado', trava: 0, erro: null };
+    if (estado.status === 'acionado') return { status: 'parado', trava: 0, erro: null };
     if (estado.status === 'erro' && estado.trava !== 0) return { ...estado, trava: 0 };
   }
   return estado;
@@ -90,7 +100,7 @@ function iniciarInterfacePortao() {
       maquina = { status: 'parado', trava: 0, erro: null };
       mensagemErro = '';
       botao.setAttribute('aria-disabled', 'false');
-      botao.textContent = 'Abrir portão';
+      botao.textContent = 'Abrir / fechar portão';
       estado.textContent = '';
       clearInterval(intervalo);
     }
@@ -116,12 +126,12 @@ function iniciarInterfacePortao() {
     const restante = Math.max(0, Math.ceil((maquina.trava - agora) / 1000));
     if (maquina.status === 'enviando') {
       botao.setAttribute('aria-disabled', 'true');
-      botao.textContent = 'Abrindo…';
+      botao.textContent = 'Acionando…';
       return;
     }
-    if (maquina.status === 'aberto' && restante > 0) {
+    if (maquina.status === 'acionado' && restante > 0) {
       botao.setAttribute('aria-disabled', 'true');
-      botao.textContent = `Portão aberto · ${restante} s`;
+      botao.textContent = `Portão acionado · ${restante} s`;
       return;
     }
     if (restante > 0) {
@@ -130,18 +140,18 @@ function iniciarInterfacePortao() {
       return;
     }
     botao.setAttribute('aria-disabled', 'false');
-    botao.textContent = 'Abrir portão';
+    botao.textContent = 'Abrir / fechar portão';
   }
 
   function mostrarEstadoAnterior(novoStatus) {
     if (novoStatus === 'enviando') {
       estado.textContent = 'Enviando o comando para abrir o portão.';
-    } else if (novoStatus === 'aberto') {
-      estado.textContent = 'Portão aberto.';
+    } else if (novoStatus === 'acionado') {
+      estado.textContent = 'Comando enviado ao portão.';
     } else if (novoStatus === 'erro') {
       mostrarFalha();
     } else if (novoStatus === 'parado') {
-      estado.textContent = 'Pronto para abrir novamente.';
+      estado.textContent = 'Pronto para acionar novamente.';
     }
   }
 
@@ -170,11 +180,7 @@ function iniciarInterfacePortao() {
 
     const resultado = await pedirAbertura(token);
     const statusAntesResposta = maquina.status;
-    const erro = resultado.erro === 'fora_do_periodo'
-      ? 'Este link só vale durante a estadia (check-in às 14h e check-out às 11h).'
-      : resultado.erro === 'muitas_tentativas'
-        ? 'Muitas tentativas seguidas. Aguarde um minuto e tente de novo.'
-        : 'Não foi possível abrir o portão agora.';
+    const erro = mensagemErroPortao(resultado.erro);
     maquina = proximoEstado(maquina, {
       tipo: 'resposta',
       ok: resultado.ok,

@@ -2,6 +2,10 @@
 // Formato: base64url(JSON {"e": <epoch s entrada>, "s": <epoch s saída>}) + "." +
 //          base64url(HMAC-SHA256(primeira parte, segredo)).
 // Sem nome de hóspede, sem nada além das duas datas.
+//
+// O token carrega a entrada e a saída REAIS da reserva. Folga de horário (ex.: abrir
+// o portão 3 h antes do check-in) é política do servidor: vai no 4º parâmetro de
+// validarToken, e não no token. Assim, mudar a margem vale também para links já gerados.
 
 import { createHmac, timingSafeEqual } from 'node:crypto';
 
@@ -104,12 +108,27 @@ function lerPayload(parte) {
 
 const recusa = (motivo) => ({ ok: false, motivo });
 
+function exigirMargem(valor, nome) {
+  if (typeof valor !== 'number' || !Number.isFinite(valor) || valor < 0) {
+    throw new TypeError(`${nome} precisa ser um número finito >= 0 (ms)`);
+  }
+}
+
 /**
  * Nunca lança por causa de token ruim. Ordem: forma → assinatura → conteúdo → período.
  * O conteúdo só é interpretado depois que a assinatura confere.
+ * Aceita se entrada − margemAntesMs <= agora <= saida + margemDepoisMs; o retorno traz
+ * as datas reais. Margem inválida lança TypeError (erro de programação, não de token).
  */
-export function validarToken(token, segredo, agora = new Date()) {
+export function validarToken(
+  token,
+  segredo,
+  agora = new Date(),
+  { margemAntesMs = 0, margemDepoisMs = 0 } = {},
+) {
   exigirSegredo(segredo);
+  exigirMargem(margemAntesMs, 'margemAntesMs');
+  exigirMargem(margemDepoisMs, 'margemDepoisMs');
   if (typeof token !== 'string' || token.length === 0 || token.length > TAMANHO_MAXIMO_TOKEN) {
     return recusa('malformado');
   }
@@ -124,7 +143,7 @@ export function validarToken(token, segredo, agora = new Date()) {
   if (!periodo) return recusa('malformado');
 
   const agoraMs = agora.getTime();
-  if (agoraMs < periodo.entrada.getTime()) return recusa('antes_da_entrada');
-  if (agoraMs > periodo.saida.getTime()) return recusa('depois_da_saida');
+  if (agoraMs < periodo.entrada.getTime() - margemAntesMs) return recusa('antes_da_entrada');
+  if (agoraMs > periodo.saida.getTime() + margemDepoisMs) return recusa('depois_da_saida');
   return { ok: true, ...periodo };
 }

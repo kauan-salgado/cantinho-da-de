@@ -12,6 +12,8 @@
 //   https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/
 //
 // Ordem: método → configuração → corpo → token → Tuya. Token inválido nunca chega à Tuya.
+// Janela de uso: de 3 h antes do check-in até 3 h depois do check-out (MARGEM_*_MS,
+// aplicadas aqui no servidor; o token guarda só as datas reais, que são as que vão ao log).
 // Na Tuya: switch_1 true → 1 s → switch_1 false (desligamento de segurança, ver lib/tuya.mjs).
 
 import { validarToken } from './lib/token.mjs';
@@ -23,6 +25,12 @@ export const config = {
 };
 
 export const TAMANHO_MAXIMO_CORPO = 1024; // bytes; um token tem ~110 caracteres
+
+const UMA_HORA_MS = 60 * 60 * 1000;
+/** O link vale desde 3 h antes do check-in... */
+export const MARGEM_ANTES_MS = 3 * UMA_HORA_MS;
+/** ...até 3 h depois do check-out. */
+export const MARGEM_DEPOIS_MS = 3 * UMA_HORA_MS;
 
 const VARIAVEIS = ['TUYA_ACCESS_ID', 'TUYA_ACCESS_SECRET', 'TUYA_DEVICE_ID', 'GATE_LINK_SECRET'];
 
@@ -124,7 +132,10 @@ export function criarHandler({
     if (token === null) return falha(400, 'token_malformado');
 
     const instante = agora();
-    const validacao = validarToken(token, env.GATE_LINK_SECRET, instante);
+    const validacao = validarToken(token, env.GATE_LINK_SECRET, instante, {
+      margemAntesMs: MARGEM_ANTES_MS,
+      margemDepoisMs: MARGEM_DEPOIS_MS,
+    });
     if (!validacao.ok) {
       const [status, codigo] = STATUS_POR_MOTIVO[validacao.motivo] ?? [400, 'token_malformado'];
       return falha(status, codigo);
