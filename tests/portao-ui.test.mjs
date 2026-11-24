@@ -25,7 +25,7 @@ test('proximoEstado volta de sucesso a parado ao terminar a trava', () => {
 test('mensagem de link fora do período usa a nova janela de validade', () => {
   assert.equal(
     mensagemErroPortao('fora_do_periodo'),
-    'Este link só funciona durante a estadia, das 11h do dia do check-in até as 14h do dia do check-out.',
+    'Este link só funciona durante a estadia, das 14h do dia do check-in até as 11h do dia do check-out.',
   );
 });
 

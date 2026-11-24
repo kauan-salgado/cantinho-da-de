@@ -4,7 +4,7 @@ const ERRO_REDE = 'falha_na_rede';
 
 export function mensagemErroPortao(codigo) {
   if (codigo === 'fora_do_periodo') {
-    return 'Este link só funciona durante a estadia, das 11h do dia do check-in até as 14h do dia do check-out.';
+    return 'Este link só funciona durante a estadia, das 14h do dia do check-in até as 11h do dia do check-out.';
   }
   if (codigo === 'muitas_tentativas') {
     return 'Muitas tentativas seguidas. Aguarde um minuto e tente de novo.';
