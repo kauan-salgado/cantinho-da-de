@@ -158,41 +158,41 @@ describe('abrir-portao', () => {
     assert.equal(chamadas.length, 0);
   });
 
-  test('margens de 3 h antes da entrada e 3 h depois da saída', () => {
-    assert.equal(MARGEM_ANTES_MS, 3 * HORA);
-    assert.equal(MARGEM_DEPOIS_MS, 3 * HORA);
+  test('sem margem: vale só do check-in ao check-out', () => {
+    assert.equal(MARGEM_ANTES_MS, 0);
+    assert.equal(MARGEM_DEPOIS_MS, 0);
   });
 
-  test('2 h antes da entrada: 200, e o log mostra o período real da reserva', async () => {
-    const { handler, chamadas, logs } = montar({ agora: new Date(ENTRADA.getTime() - 2 * HORA) });
+  test('no horário exato do check-in: 200, e o log mostra o período real da reserva', async () => {
+    const { handler, chamadas, logs } = montar({ agora: new Date(ENTRADA.getTime()) });
     const r = await ler(await handler(post({ token: TOKEN_VALIDO })));
     assert.deepEqual(r, { status: 200, corpo: { success: true } });
     assert.equal(chamadas.length, 3);
     assert.match(logs.info[0], /reserva de 2026-12-17 14:00:00 a 2026-12-21 11:00:00/);
   });
 
-  test('2 h depois da saída: 200', async () => {
-    const { handler } = montar({ agora: new Date(SAIDA.getTime() + 2 * HORA) });
+  test('no horário exato do check-out: 200', async () => {
+    const { handler } = montar({ agora: new Date(SAIDA.getTime()) });
     const r = await ler(await handler(post({ token: TOKEN_VALIDO })));
     assert.equal(r.status, 200);
   });
 
-  test('4 h antes da entrada: 403 fora_do_periodo, sem chamar a Tuya', async () => {
-    const { handler, chamadas } = montar({ agora: new Date(ENTRADA.getTime() - 4 * HORA) });
+  test('1 minuto antes do check-in: 403 fora_do_periodo, sem chamar a Tuya', async () => {
+    const { handler, chamadas } = montar({ agora: new Date(ENTRADA.getTime() - 60_000) });
     const r = await ler(await handler(post({ token: TOKEN_VALIDO })));
     assert.deepEqual(r, { status: 403, corpo: { success: false, error: 'fora_do_periodo' } });
     assert.equal(chamadas.length, 0);
   });
 
-  test('403 fora_do_periodo um minuto antes da margem, sem chamar a Tuya', async () => {
-    const { handler, chamadas } = montar({ agora: new Date(ENTRADA.getTime() - MARGEM_ANTES_MS - 60_000) });
+  test('3 h antes do check-in: 403 fora_do_periodo, sem chamar a Tuya', async () => {
+    const { handler, chamadas } = montar({ agora: new Date(ENTRADA.getTime() - 3 * HORA) });
     const r = await ler(await handler(post({ token: TOKEN_VALIDO })));
     assert.deepEqual(r, { status: 403, corpo: { success: false, error: 'fora_do_periodo' } });
     assert.equal(chamadas.length, 0);
   });
 
-  test('403 fora_do_periodo um minuto depois da margem, sem chamar a Tuya', async () => {
-    const { handler, chamadas } = montar({ agora: new Date(SAIDA.getTime() + MARGEM_DEPOIS_MS + 60_000) });
+  test('1 minuto depois do check-out: 403 fora_do_periodo, sem chamar a Tuya', async () => {
+    const { handler, chamadas } = montar({ agora: new Date(SAIDA.getTime() + 60_000) });
     const r = await ler(await handler(post({ token: TOKEN_VALIDO })));
     assert.deepEqual(r, { status: 403, corpo: { success: false, error: 'fora_do_periodo' } });
     assert.equal(chamadas.length, 0);

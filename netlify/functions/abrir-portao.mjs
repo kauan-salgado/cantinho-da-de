@@ -12,7 +12,7 @@
 //   https://docs.netlify.com/manage/security/secure-access-to-sites/rate-limiting/
 //
 // Ordem: método → configuração → corpo → token → Tuya. Token inválido nunca chega à Tuya.
-// Janela de uso: de 3 h antes do check-in até 3 h depois do check-out (MARGEM_*_MS,
+// Janela de uso: exatamente do check-in ao check-out, sem folga (MARGEM_*_MS = 0,
 // aplicadas aqui no servidor; o token guarda só as datas reais, que são as que vão ao log).
 // Na Tuya: switch_1 true → 1 s → switch_1 false (desligamento de segurança, ver lib/tuya.mjs).
 
@@ -26,11 +26,10 @@ export const config = {
 
 export const TAMANHO_MAXIMO_CORPO = 1024; // bytes; um token tem ~110 caracteres
 
-const UMA_HORA_MS = 60 * 60 * 1000;
-/** O link vale desde 3 h antes do check-in... */
-export const MARGEM_ANTES_MS = 3 * UMA_HORA_MS;
-/** ...até 3 h depois do check-out. */
-export const MARGEM_DEPOIS_MS = 3 * UMA_HORA_MS;
+/** O link vale a partir do horário exato do check-in... */
+export const MARGEM_ANTES_MS = 0;
+/** ...até o horário exato do check-out. */
+export const MARGEM_DEPOIS_MS = 0;
 
 const VARIAVEIS = ['TUYA_ACCESS_ID', 'TUYA_ACCESS_SECRET', 'TUYA_DEVICE_ID', 'GATE_LINK_SECRET'];
 
